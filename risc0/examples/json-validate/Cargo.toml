@@ -1,0 +1,24 @@
+[package]
+name = "json-validate"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+json-validate-core = { path = "core" }
+json-validate-methods = { path = "methods" }
+risc0-zkvm = { path = "../../risc0/zkvm" }
+
+[features]
+cuda = ["risc0-zkvm/cuda"]
+default = []
+metal = ["risc0-zkvm/metal"]
+prove = ["risc0-zkvm/prove"]
+
+
+[dev-dependencies]
+bencher = "0.1"
+
+[[bench]]
+name = "prove"
+harness = false
+path = "benches/bench.rs"
